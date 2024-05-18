@@ -19,3 +19,9 @@ class MicrosoftMainPage:
         )
         support_input.clear()
         support_input.send_keys(support_text)
+
+    def get_input_value(self):
+        support_input = WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.ID, "supHomeAndLandingPageSearchBox"))
+        )
+        return support_input.get_attribute("value")
